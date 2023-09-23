@@ -33,9 +33,8 @@ jobs:
       - name: Build APK
         working-directory: ./workspace
         run: |
-          git add -f gradle/wrapper/gradle-wrapper.jar
           chmod +x gradlew
-          ./gradlew ${{ github.event.inputs.taskName }} --stacktrace
+          gradle ${{ github.event.inputs.taskName }} --stacktrace
 
       - name: Upload the APK artifact with 1 day retention
         uses: actions/upload-artifact@v3
